@@ -8,7 +8,7 @@ class EmployeesController extends Controller
 {
 // Darbas su Duonbaze
 private $emp = [
-    ['id' => 1, 'title' => 'Title k', 'text' => 'Some text 1'],
+    ['id' => 1, 'title' => 'Title k', 'text' => 'Some text '],
     ['id' => 2, 'title' => 'Title 2', 'text' => 'Some text 2']
 ];
 

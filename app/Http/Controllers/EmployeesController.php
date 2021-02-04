@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class EmployeesController extends Controller
 {
 // Darbas su Duonbaze
 private $emp = [
-    ['id' => 1, 'title' => 'Title k', 'text' => 'Some text '],
-    ['id' => 2, 'title' => 'Title 2', 'text' => 'Some text 2']
+    ['id' => 1, 'Darbuotojas' => 'Tomas']
+
 ];
 
-public function index(){
-    return view('employees', ['posts' => $this->emp]);
+public function index(){ // return $this->blogPosts;
+ return view('employees', ['posts' => \App\Models\Employees::all()]); // MODEL::all() → SELECT ALL ROWS
+
 }
 
 public function show($id){
@@ -23,6 +25,14 @@ public function show($id){
         }
     }
 }
+// Metodas Create nauja darbuotoja
+public function store(Request $request){
+    $pb = new \App\Models\Employees();
+    $pb->Darbuotojas = $request['Darbuotojas'];
+    $pb->save();
+    return redirect('/');
+}
+
 
 
 }

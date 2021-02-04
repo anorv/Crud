@@ -8,9 +8,9 @@
         <li class="nav-item {{ route(Route::currentRouteName()) == route('employees.index') ? 'active' : '' }}">
         <a class="nav-link" href="{{ route('employees.index')}}">Darbuotojai</a>
        </li>
-        <li class="nav-item {{Request::routeIs('projects') ? 'active' : '' }}">
-          <a class="nav-link" href="{{ route('projects') }}">Projektai</a>
-        </li>
+       <li class="nav-item {{ route(Route::currentRouteName()) == route('projects.index') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ route('projects.index')}}">Projektai</a>
+       </li>
       </ul>
       
       {{-- <span class="navbar-text {{Request::routeIs('logout') ? 'active' : '' }}">

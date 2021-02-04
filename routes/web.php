@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\ProjectsController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,8 +28,23 @@ Route::get('/', function () { return view('employees'); })->name('employees');
 Route::get('projects', function () { return view('projects'); })->name('projects');
 
 
-// Kad paimtu masyva is duonbazes ir isprintintu i ekrana
+// Kad paimtu masyva is duonbazes ir isprintintu i ekrana Darbuotojus
 Route::get('/', 'App\Http\Controllers\EmployeesController@index')->name('employees.index');
 Route::get('/{id}', [EmployeesController::class, 'show'])->name('employees.show');
+Route::post('/', [EmployeesController::class, 'store']);
 
 
+// Kad paimtu masyva is duonbazes ir isprintintu i ekrana Projektus
+Route::get('/projects', 'App\Http\Controllers\ProjectsController@index')->name('projects.index');
+Route::get('/projects{id}', [ProjectsController::class, 'show'])->name('projects.show');
+Route::post('/projects', [ProjectsController::class, 'store']);
+
+
+
+// use App\Models\Employees;
+// Route::get('/db', function () {
+//     $bp = new Employees();
+//     $bp->Darbuotojas = "Bp 1";
+//     $bp->save();
+//     return Employees::where('Darbuotojas', 'Bp 1')->latest()->first();
+// });

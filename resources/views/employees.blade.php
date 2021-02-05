@@ -1,18 +1,45 @@
+
 @extends('layouts.master')
 @section('content')
+<table class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Darbuotojas</th>
+        <th scope="col">Projektas</th>
+        <th scope="col">Veiksmas</th>
+      </tr>
+    </thead>
 {{-- Kad isprintintu darbuotojus i ekrana --}}
+    <tbody>
     @foreach ($posts as $post)
-        <h1>{{ $post['id'] }}</h1>
-        <h1>{{ $post['Darbuotojas'] }}</h1>
-     
-    @endforeach
+    <tr>
+        <td>{{ $post['id'] }}</td>
+        <td>{{ $post['Darbuotojas'] }}</td> 
+        <td>...</td>
+        <td>
+            {{-- delete --}}
+        <form action="{{ route('employees.destroy', $post['id']) }}" method="POST">
+                @method('DELETE') @csrf
+              <input class="btn btn-danger" type="submit" value="DELETE">
+        </form>
+        {{-- update forma --}}
+        <form action="{{ route('employees.show', $post['id']) }}" method="GET">
+            <input class="btn btn-primary" type="submit" value="UPDATE">
+        </form>
 
+        </td>
+    </tr>
+  
+    @endforeach
+</tbody>
+</table>
 {{-- Kad ikeltume nauja darbuotoja --}}
 <hr>
     <form method="POST" action="/">
         @csrf
         <label for="title">Darbuotojo vardas:</label><br>
-        <input type="text" id="id" name="Darbuotojas"><br>
+        <input type="text" id="id" name="Darbuotojas" placeholder="name"><br>
         {{-- <label for="text">Projektas</label><br>
         <input type="text" id="text" name="text"><br><br> --}}
         <input class="btn btn-primary" type="submit" value="Submit">

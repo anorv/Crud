@@ -1,17 +1,41 @@
+
 @extends('layouts.master')
 @section('content')
+<table class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Projektas</th>
+        <th scope="col">Darbuotojas</th>
+        <th scope="col">Veiksmas</th>
+      </tr>
+    </thead>
 {{-- Kad isprintintu darbuotojus i ekrana --}}
+    <tbody>
     @foreach ($posts as $post)
-    <h1>{{ $post['id'] }}</h1>
-    <h1>{{ $post['Projektas'] }}</h1>
+    <tr>
+        <td>{{ $post['id'] }}</td>
+        <td>{{ $post['Projektas'] }}</td> 
+        <td>...</td>
+        <td>
+             {{-- delete --}}
+        <form action="{{ route('projects.destroy', $post['id']) }}" method="POST">
+            @method('DELETE') @csrf
+          <input class="btn btn-danger" type="submit" value="DELETE">
+    </form>
+    
+        </td>
+    </tr>
+  
     @endforeach
-
+</tbody>
+</table>
     {{-- Kad ikeltume nauja projekta --}}
     <hr>
         <form method="POST" action="/projects">
             @csrf
             <label for="title">Darbuotojo vardas:</label><br>
-            <input type="text" id="id" name="Projektas"><br>
+            <input type="text" id="id" name="Projektas" placeholder="name"><br>
             {{-- <label for="text">Projektas</label><br>
             <input type="text" id="text" name="text"><br><br> --}}
             <input class="btn btn-primary" type="submit" value="Submit">

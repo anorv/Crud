@@ -30,5 +30,10 @@ public function store(Request $request){
     $pb->save();
     return redirect('/projects');
 }
+// Delete
+public function destroy($id){
+    \App\Models\Projects::destroy($id);
+    return redirect('/projects')->with('status_success', 'Post deleted!');
+}
 
 }

@@ -40,8 +40,9 @@
         @csrf
         <label for="title">Darbuotojo vardas:</label><br>
         <input type="text" id="id" name="Darbuotojas" placeholder="name"><br>
-        {{-- <label for="text">Projektas</label><br>
-        <input type="text" id="text" name="text"><br><br> --}}
+        {{-- <select id="projects_id" name="projects_id">
+        <option value="id">{{ $post['projects'] }}</option> 
+        </select> --}}
         <input class="btn btn-primary" type="submit" value="Submit">
     </form>
 

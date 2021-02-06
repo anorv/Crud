@@ -23,7 +23,10 @@
             @method('DELETE') @csrf
           <input class="btn btn-danger" type="submit" value="DELETE">
     </form>
-    
+    {{-- Update --}}
+    <form action="{{ route('projects.show', $post['id']) }}" method="GET">
+        <input class="btn btn-primary" type="submit" value="UPDATE">
+    </form>
         </td>
     </tr>
   

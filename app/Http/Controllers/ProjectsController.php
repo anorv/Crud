@@ -6,21 +6,13 @@ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
-// Darbas su Duonbaze
-private $prj = [
-    ['id' => 1, 'Projektas' => 'PHP']
-];
 
 public function index(){
     return view('projects', ['posts' => \App\Models\Projects::all()]); // MODEL::all() → SELECT ALL ROWS
 }
 
 public function show($id){
-    foreach($this->prj as $prj){
-        if($prj['id'] == $id){
-            return $prj;
-        }
-    }
+    return view('project', ['post' => \App\Models\Projects::find($id)]);
 }
 
 // Metodas Create nauja darbuotoja
@@ -35,5 +27,18 @@ public function destroy($id){
     \App\Models\Projects::destroy($id);
     return redirect('/projects')->with('status_success', 'Post deleted!');
 }
+
+// Update
+public function update($id, Request $request){
+    // [Dėmesio] validacijoje unique turi būti nurodytas teisingas lentelės pavadinimas!
+    // galime pažiūrėti, kas bus jei bus neteisingas
+    $this->validate($request, [
+        'Projektas' => 'required|unique:projects,Projektas,'.$id.',id|max:225',
+    ]);
+    $bp = \App\Models\Projects::find($id);
+    $bp->Projektas = $request['Projektas'];
+    $bp->save(); 
+    return redirect('/projects');
+}  
 
 }

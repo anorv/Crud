@@ -5,13 +5,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item {{ route(Route::currentRouteName()) == route('employees.index') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('employees.index')}}">Darbuotojai</a>
-       </li>
-       <li class="nav-item {{ route(Route::currentRouteName()) == route('projects.index') ? 'active' : '' }}">
-        <a class="nav-link" href="{{ route('projects.index')}}">Projektai</a>
-       </li>
+          <li class="nav-item {{ Request::routeIs('employees.index') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('employees.index')}}">Darbuotojai</a>
+          </li>
+    
+          <li class="nav-item {{ Request::routeIs('projects.index') ? 'active' : '' }}">
+            <a class="nav-link" href="{{ route('projects.index')}}">Projektai</a>
+          </li>
       </ul>
+      
       
       {{-- <span class="navbar-text {{Request::routeIs('logout') ? 'active' : '' }}">
         <a class="nav-link" href="href="{{ route('logout') }}">Logout</a>

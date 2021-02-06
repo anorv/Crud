@@ -19,14 +19,10 @@ public function index(){ // return $this->blogPosts;
 }
 
 public function show($id){
-    // foreach($this->emp as $emp){
-    //     if($emp['id'] == $id){
-    //         return $emp;
-    //     }
-    // }
     return view('employee', ['post' => \App\Models\Employees::find($id)]);
 
 }
+
 // Metodas Create nauja darbuotoja
 public function store(Request $request){
     $pb = new \App\Models\Employees();
@@ -34,24 +30,24 @@ public function store(Request $request){
     $pb->save();
     return redirect('/');
 }
+
 // Delete
 public function destroy($id){
     \App\Models\Employees::destroy($id);
     return redirect('/')->with('status_success', 'Post deleted!');
 }
+
 // Update
 public function update($id, Request $request){
-    // [Dėmesio] validacijoje unique turi būti teisingas lentelės pavadinimas!
-            $this->validate($request, [
-                'Darbuotojas' => 'required',
-            
-            ]);
-            $bp = \App\Models\Employees::find($id);
-            $bp->Darbuotojas = $request['Darbuotojas'];
-            return ($bp->save() !== 1) ? 
-                redirect('/'.$id)->with('status_success', 'Post updated!') : 
-                redirect('/'.$id)->with('status_error', 'Post was not updated!');
-        }
-    
+    // [Dėmesio] validacijoje unique turi būti nurodytas teisingas lentelės pavadinimas!
+    // galime pažiūrėti, kas bus jei bus neteisingas
+    $this->validate($request, [
+        'Darbuotojas' => 'required|unique:employees,Darbuotojas,'.$id.',id|max:225',
+    ]);
+    $bp = \App\Models\Employees::find($id);
+    $bp->Darbuotojas = $request['Darbuotojas'];
+    $bp->save(); 
+    return redirect('/');
+}  
 
 }

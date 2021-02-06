@@ -39,11 +39,11 @@ Route::put('/{id}', [EmployeesController::class, 'update'])->name('employees.upd
 
 // Kad paimtu masyva is duonbazes ir isprintintu i ekrana Projektus
 Route::get('/projects', 'App\Http\Controllers\ProjectsController@index')->name('projects.index');
-Route::get('/projects{id}', [ProjectsController::class, 'show'])->name('projects.show');
+Route::get('/projects/{id}', [ProjectsController::class, 'show'])->name('projects.show');
 Route::post('/projects', [ProjectsController::class, 'store']);
-Route::delete('/projects{id}', [ProjectsController::class, 'destroy'])->name('projects.destroy');
-
-
+Route::delete('/projects/{id}', [ProjectsController::class, 'destroy'])->name('projects.destroy');
+// Update puslapis projects
+Route::put('/projects/{id}', [ProjectsController::class, 'update'])->name('projects.update');
 
 
 

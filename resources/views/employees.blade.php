@@ -16,10 +16,9 @@
     <tr>
         <td>{{ $post['id'] }}</td>
         <td>{{ $post['Darbuotojas'] }}</td> 
-        <td>....
-        </td>
-        <td>
-            {{-- delete --}}
+        <td>{{ $post->projects['Projektas'] }}</td>
+       {{-- delete --}}
+       <td>
         <form action="{{ route('employees.destroy', $post['id']) }}" method="POST">
                 @method('DELETE') @csrf
               <input class="btn btn-danger" type="submit" value="DELETE">

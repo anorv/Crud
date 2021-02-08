@@ -16,7 +16,8 @@
     <tr>
         <td>{{ $post['id'] }}</td>
         <td>{{ $post['Darbuotojas'] }}</td> 
-        <td>{{ $post['projects.projects'] }}</td>
+        <td>....
+        </td>
         <td>
             {{-- delete --}}
         <form action="{{ route('employees.destroy', $post['id']) }}" method="POST">

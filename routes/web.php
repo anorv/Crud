@@ -46,7 +46,6 @@ Route::delete('/projects/{id}', [ProjectsController::class, 'destroy'])->name('p
 Route::put('/projects/{id}', [ProjectsController::class, 'update'])->name('projects.update');
 
 
-
 // use App\Models\Employees;
 // Route::get('/db', function () {
 //     $bp = new Employees();

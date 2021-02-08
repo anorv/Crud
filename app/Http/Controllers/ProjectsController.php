@@ -41,4 +41,6 @@ public function update($id, Request $request){
     return redirect('/projects');
 }  
 
+
+
 }

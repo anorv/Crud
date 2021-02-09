@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\ProjectsController;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,7 +27,7 @@ use App\Http\Controllers\ProjectsController;
 // })->name('projects');
 // Kad galetume vaikscioti po Employes ir project puslapius
 Route::get('/', function () { return view('employees'); })->name('employees');
-Route::get('projects', function () { return view('projects'); })->name('projects');
+Route::get('/projects', function () { return view('projects'); })->name('projects');
 
 
 // Kad paimtu masyva is duonbazes ir isprintintu i ekrana Darbuotojus
@@ -53,3 +55,7 @@ Route::put('/projects/{id}', [ProjectsController::class, 'update'])->name('proje
 //     $bp->save();
 //     return Employees::where('Darbuotojas', 'Bp 1')->latest()->first();
 // });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

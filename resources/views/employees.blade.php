@@ -44,6 +44,13 @@
         <option value="id">{{ $post['projects'] }}</option> 
         </select> --}}
         <input class="btn btn-primary" type="submit" value="Submit">
+        <select id="project_id" name="project_id">
+            @foreach ($post->projects as $prj)
+            <option value="">
+                {{ $prj}}
+           </option>
+           @endforeach
+        </select>
     </form>
 
 @endsection

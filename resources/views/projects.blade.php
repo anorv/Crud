@@ -16,7 +16,11 @@
     <tr>
         <td>{{ $post['id'] }}</td>
         <td>{{ $post['Projektas'] }}</td> 
-        <td>{{ $post->employees }}</td>
+    <td style="display: flow-root">
+    @foreach ($post->employees as $emp)
+    {{ $emp['Darbuotojas']. " " }} 
+    @endforeach
+    </td>
         <td>
              {{-- delete --}}
         <form action="{{ route('projects.destroy', $post['id']) }}" method="POST">

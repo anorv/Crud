@@ -23,7 +23,6 @@ With this CRUD-app you can manage your <b>Database</b> for yours employees and p
 <h5>Then open terminal and install doctrine/orm, and configurate files by following steps:<h5>
 - <i>php ../composer.phar require doctrine/orm;
 - php artisan key:generate;
-- php artisan migrate;</i>
+- php artisan migrate; </i>
 
 - Go to browser and in web address field write http://localhost/ and press enter.
-- find "CRUD-app" file and open it;

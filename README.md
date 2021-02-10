@@ -20,7 +20,7 @@ With this CRUD-app you can manage your <b>Database</b> for yours employees and p
 - In <b>.htaccess</b> file add moved folder name;
 - Then open that folder in Visual Studio Code;
 - Create <b>.env</b> file, and add everything from <b>.env.example</b>. In <b>.env</b> file change just password: <i>mysql</i>;
-<h5>Then open terminal and install doctrine/orm, and configurate files by following steps:<h5>
+<h5>Then open terminal and install doctrine/orm, and configurate files by following steps:</h5>
 - <i>php ../composer.phar require doctrine/orm;  <br>
 - php artisan key:generate;  <br>
 - php artisan migrate; </i>  <br>

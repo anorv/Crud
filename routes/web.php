@@ -36,6 +36,7 @@ Route::get('/{id}', [EmployeesController::class, 'show'])->name('employees.show'
 Route::post('/', [EmployeesController::class, 'store']);
 Route::delete('/{id}', [EmployeesController::class, 'destroy'])->name('employees.destroy');
 // Update puslapis employees
+// Route::get('/{id}', 'App\Http\Controllers\EmployeesController@show');
 Route::put('/{id}', [EmployeesController::class, 'update'])->name('employees.update');
 
 
@@ -45,6 +46,7 @@ Route::get('/projects/{id}', [ProjectsController::class, 'show'])->name('project
 Route::post('/projects', [ProjectsController::class, 'store']);
 Route::delete('/projects/{id}', [ProjectsController::class, 'destroy'])->name('projects.destroy');
 // Update puslapis projects
+// Route::get('/{id}', 'App\Http\Controllers\ProjectsController@show');
 Route::put('/projects/{id}', [ProjectsController::class, 'update'])->name('projects.update');
 
 

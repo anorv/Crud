@@ -40,17 +40,14 @@
         @csrf
         <label for="title">Darbuotojo vardas:</label><br>
         <input type="text" id="id" name="Darbuotojas" placeholder="name"><br>
-        {{-- <select id="projects_id" name="projects_id">
-        <option value="id">{{ $post['projects'] }}</option> 
-        </select> --}}
         <input class="btn btn-primary" type="submit" value="Submit">
-        <select id="project_id" name="project_id">
+        {{-- <select name="projects_id" id="" class="form-control">
+            <option value="" selected disabled>Pasirinkite projekta</option>
             @foreach ($post->projects as $prj)
-            <option value="">
-                {{ $prj}}
-           </option>
-           @endforeach
-        </select>
+            <option value="{{ $prj->id }}">{{ $prj->title }}</option>
+            @endforeach
+       </select> --}}
+
     </form>
 
 @endsection
